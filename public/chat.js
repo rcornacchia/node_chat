@@ -1,12 +1,12 @@
 window.onload = function() {
 
-    var message = [];
+    var messages = [];
     var socket = io.connect('http://localhost:3700');
     var field = document.getElementById("field");
     var sendButton = document.getElementById("send");
     var content = document.getElementById("content");
 
-    socket.on('message', function(data) {
+    socket.on('message', function (data) {
         if(data.message) {
             messages.push(data.message);
             var html = '';
@@ -23,4 +23,5 @@ window.onload = function() {
         var text = field.value;
         socket.emit('send', { message: text });
     };
-}
+
+};
